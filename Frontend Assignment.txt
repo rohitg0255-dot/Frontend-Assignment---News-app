@@ -1,0 +1,22 @@
+﻿Frontend Assignment
+
+
+Design and develop a responsive news website. The website should include the following features:
+1. News List and Details View: Display a list of news articles. When a user clicks on a news item, the full details of the selected news should appear on the right side of the page.
+2. Category List with Toggle: Show a list of news categories on the left side of the page, with the ability to toggle the visibility of the category list.
+3. Responsive Design: Ensure the layout is fully responsive and adapts seamlessly to different screen sizes.
+Focus on creating a clean and user-friendly interface with your creativity.
+
+
+API - https://newsdata.io/api/1/news?apikey=pub_635031f8dfedfcd1866ea8b447113b762127f&language=en&category=technology
+
+Demo UI :- 
+1. Home screen :-
+  
+
+
+
+
+
+
+   2. Detail screen :-
