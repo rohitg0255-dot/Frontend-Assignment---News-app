@@ -355,9 +355,9 @@ function App() {
 
   const applyData = (dataset) => {
     console.log(dataset);
-    if (dataset.status === null || dataset.status !== "success") {
+    if (dataset.message) {
       setLoading(false);
-      alert(`Error: ${dataset.results.message}`);
+      alert(`Error: ${dataset.message}`);
       return;
     }
 
@@ -382,8 +382,10 @@ function App() {
         image_url: element.image_url,
         description: element.description,
         creater: `By ${
-          element.creator && element.creator.length > 1
-            ? `and ${element.creator.length - 1} others`
+          element.creator && element.creator.length === 1
+            ? `${element.creator[0]}`
+            : element.creator && element.creator.length > 1
+            ? `${element.creator[0]} and ${element.creator.length - 1} others`
             : ""
         }`,
         pubDate: element.pubDate,
@@ -405,18 +407,19 @@ function App() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch(
-          "https://newsdata.io/api/1/news?apikey=pub_635031f8dfedfcd1866ea8b447113b762127f&language=en&category=technology"
-        );
-        return response;
-        // return data.results;
+        // const response = await fetch(
+        //   "https://newsdata.io/api/1/news?apikey=pub_635031f8dfedfcd1866ea8b447113b762127f&language=en&category=technology"
+        // );
+        // return response;
+        return data.results;
       } catch (error) {
         console.error("Error fetching news:", error);
         setLoading(false);
       }
     };
 
-    fetchNews().then(toJson).then(applyData);
+    // fetchNews().then(toJson).then(applyData);
+    fetchNews().then(applyData);
   }, []);
 
   return (
