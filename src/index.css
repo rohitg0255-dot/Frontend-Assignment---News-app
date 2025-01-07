@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: theme(
+      "colors.background"
+    ); /* Set the background color to primary */
+    font-family: theme("fontFamily.sans");
+    font-size: theme("fontSize.xs");
+    color: theme("colors.text");
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .text-stroke-black {
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+  }
+}
+
+@layer utilities {
+  .btn {
+    @apply px-6 my-auto mx-2 py-1 font-semibold rounded shadow-sm transition duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-blue-500 text-white hover:bg-blue-600;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-300 text-black hover:bg-gray-400;
+  }
+
+  .btn-danger {
+    @apply bg-red-500 text-white hover:bg-red-600;
+  }
+
+  .btn-success {
+    @apply bg-green-500 text-white hover:bg-green-600;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar styles */
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #3b82f6; /* This is the hex value for bg-blue-500 */
+    border-radius: 10px;
+    border: 3px solid #eaffd0;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #f0f8ff;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-button {
+    display: none;
+  }
+}
