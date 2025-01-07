@@ -339,7 +339,7 @@ function App() {
 
   let toJson = async (obj) => {
     const jsonData = await obj.json(); // Read the response body once
-    return jsonData;
+    return jsonData.results;
   };
 
   function capitalizeFirstLetter(string) {
@@ -355,7 +355,7 @@ function App() {
 
   const applyData = (dataset) => {
     console.log(dataset);
-    if (dataset.status !== "success") {
+    if (dataset.status === null || dataset.status !== "success") {
       setLoading(false);
       alert(`Error: ${dataset.results.message}`);
       return;
