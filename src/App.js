@@ -354,7 +354,6 @@ function App() {
   }
 
   const applyData = (dataset) => {
-    console.log(dataset);
     if (dataset.message) {
       setLoading(false);
       alert(`Error: ${dataset.message}`);
@@ -407,19 +406,17 @@ function App() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        // const response = await fetch(
-        //   "https://newsdata.io/api/1/news?apikey=pub_635031f8dfedfcd1866ea8b447113b762127f&language=en&category=technology"
-        // );
-        // return response;
-        return data.results;
+        const response = await fetch(
+          "https://newsdata.io/api/1/news?apikey=pub_635031f8dfedfcd1866ea8b447113b762127f&language=en&category=technology"
+        );
+        return response;
       } catch (error) {
         console.error("Error fetching news:", error);
         setLoading(false);
       }
     };
 
-    // fetchNews().then(toJson).then(applyData);
-    fetchNews().then(applyData);
+    fetchNews().then(toJson).then(applyData);
   }, []);
 
   return (
